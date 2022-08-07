@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
-//循环链表和双向链表需要进一步学习弄清楚
-  //循环链表完全没弄明白，双向链表的循环表
-
 /************************************************************************/
 /* 线性表顺序存储结构的元素获取                                         */
 /************************************************************************/
@@ -141,7 +138,7 @@
 /************************************************************************/
 /* 线性表的链式存储结构的元素删除                                       */
 /************************************************************************/
-int main()
+/*int main()
 {
   int a=0;
   int b=255;
@@ -167,7 +164,7 @@ int main()
   b=SingleLinkListDelete(&head,3,&a);
   printf("单链表中删除的元素为%d\n",a);
   printf("函数SingleLinkListDelete返回状态为%d\n",b);
- }
+ }*/
 
 /************************************************************************/
 /* 单链表的整表创建，头插法                                             */
@@ -349,7 +346,7 @@ int main()
   h->next=head;
  
   b=CircularLinkListGetElem(h,3,&a);
-  printf("单链表的第3个元素为：%d\n",a);
+  printf("循环链表的第3个元素为：%d\n",a);
   printf("函数CircularLinkListGetElem返回状态为%d\n",b);
 
 }*/
@@ -382,7 +379,7 @@ int main()
 
   b=CircularLinkListInsert(&g,3,6);
   CircularLinkListGetElem(g,3,&a);
-  printf("单链表中的第3元素为%d\n",a);
+  printf("循环链表中的第3元素为%d\n",a);
   printf("函数CircularLinkListInsert返回状态为%d\n",b);
  
 }*/
@@ -414,7 +411,7 @@ int main()
   h->next=head;
 
   b=CircularLinkListDelete(&head,3,&a);
-  printf("单链表中删除的元素为%d\n",a);
+  printf("循环链表中删除的元素为%d\n",a);
   printf("函数CircularLinkListDelete返回状态为%d\n",b);
  }*/
 
@@ -437,15 +434,26 @@ int main()
   f->data=3;
   g->data=4;
   h->data=5;
+
   head=c;
+
   c->next=d;
+  c->prior=NULL;
+
   d->next=f;
+  d->prior=c;
+
   f->next=g;
+  f->prior=d;
+
   g->next=h;
+  g->prior=f;
+
   h->next=NULL;
+  h->prior=g;
 
   b=DulLinkListGetElem(head,3,&a);
-  printf("单链表的第3个元素为：%d\n",a);
+  printf("双向链表的第3个元素为：%d\n",a);
   printf("函数DulLinkListGetElem返回状态为%d\n",b);
 
 }*/
@@ -492,7 +500,7 @@ int main()
 /************************************************************************/
 /* 双向链表的元素删除                                                   */
 /************************************************************************/
-/*int main()
+int main()
 {
   int a=0;
   int b=255;
@@ -524,6 +532,6 @@ int main()
   b=DulLinkListDelete(&head,3,&a);
   printf("双向链表中删除的元素为%d\n",a);
   printf("函数DulLinkListDelete返回状态为%d\n",b);
- }*/
+ }
 
 

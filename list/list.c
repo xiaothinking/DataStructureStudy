@@ -406,12 +406,12 @@ status CircularLinkListInsert(LinkList *L,int i,ElemType e)
 	LinkList p,s;
 	int j=1;
     p=*L;
-	while(j<i && (p!=*L))
+	while(j<i && p)
 	{
 		p=p->next;
 		++j;
 	}
-	if((p==*L) || j>i)
+	if(!p || j>i)
 	{
 		return ERROR;
 	}
@@ -436,12 +436,12 @@ status CircularLinkListDelete(LinkList *L,int i,ElemType *e)
 	LinkList p,q;
 	int j=1;
 	p=*L;
-	while(j<i&&(p!=*L))
+	while(j<i&&(p->next))
 	{
 		p=p->next;
 		++j;
 	}
-	if(!(p==*L)||j>i)
+	if(!(p->next)||j>i)
 	{
 		return ERROR;
 	}
